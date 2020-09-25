@@ -1,3 +1,9 @@
+// Name: Michael Kukovec
+// Email: kukovec@wisc.edu
+// Team: AD
+// TA: Sophie Stephenson
+// Lecturer: Gary Dahl
+// Notes to Grader: Data Wrangler 2
 
 public class Book {
 	
@@ -75,7 +81,6 @@ public class Book {
 							i++;
 						}
 				}
-
 				//Handles initials
 				if(first.charAt(first.length() - 1) == '.') {
 					first = first.substring(0, first.length() - 1);
