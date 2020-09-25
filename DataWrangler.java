@@ -28,7 +28,6 @@ public class DataWrangler {
 		      File read_file = new File(file_name);
 		      
 		      Scanner scan = new Scanner(read_file);
-		      System.out.println("TEST " + file_name); //****
 		      String line = scan.nextLine();
 		      
 		      while (scan.hasNextLine()) {
