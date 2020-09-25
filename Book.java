@@ -3,7 +3,7 @@
 // Team: AD
 // TA: Sophie Stephenson
 // Lecturer: Gary Dahl
-// Notes to Grader: Data Wrangler 2
+// Notes to Grader: getCitation() handles all edge cases for separating last and first name
 
 public class Book {
 	
@@ -81,6 +81,7 @@ public class Book {
 							i++;
 						}
 				}
+
 				//Handles initials
 				if(first.charAt(first.length() - 1) == '.') {
 					first = first.substring(0, first.length() - 1);
