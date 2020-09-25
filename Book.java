@@ -1,6 +1,7 @@
 // Name: Michael Kukovec
 // Email: kukovec@wisc.edu
 // Team: AD
+// Role: Data Wrangler 2
 // TA: Sophie Stephenson
 // Lecturer: Gary Dahl
 // Notes to Grader: getCitation() handles all edge cases for separating last and first name
@@ -100,14 +101,14 @@ public class Book {
 			citation += ". ";
 		}
 		//Handles missing info
-		if(title != "") {
+		if(!title.equals("")) {
 			citation += title + ". ";
 		}
-		if(publisher != "") {
+		if(!publisher.equals("")) {
 			citation += publisher;
 		}
 		if(publication_year > 0) {
-			if(publisher != "") {
+			if(!publisher.equals("")) {
 				citation += ", ";
 			}
 			citation += publication_year;

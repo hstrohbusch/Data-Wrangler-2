@@ -1,6 +1,7 @@
 // Name: Michael Kukovec
 // Email: kukovec@wisc.edu
 // Team: AD
+// Role: Data Wrangler 2
 // TA: Sophie Stephenson
 // Lecturer: Gary Dahl
 // Notes to Grader: requires class BackEndHash to compile
@@ -10,19 +11,24 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class DataWrangler {
-	public static boolean readInputFile(String file_name) throws FileNotFoundException {
+	public static boolean readInputFile(BackEndHash table_name, String file_name) throws FileNotFoundException {
 		//Title, Author, Publisher, Publication Year, ISBN
 		final int info_types = 5;
 		
 		//Assumes .csv if no extension provided
-		if(file_name.substring(file_name.length() - 4) != ".csv" && file_name.substring(file_name.length() - 4) != ".txt") {
+		if(!file_name.substring(file_name.length() - 4).equals(".csv") && !file_name.substring(file_name.length() - 4).equals(".txt")) {
 			file_name += ".csv";
 		}
 		
 		//Open file
 		 try {
+			 //Appends current directory to start of file name
+			 //NOTE: if the file is not reading, check that this line is creating the correct directory path
+			 file_name = System.getProperty("user.dir") + "\\" + file_name;
 		      File read_file = new File(file_name);
+		      
 		      Scanner scan = new Scanner(read_file);
+		      System.out.println("TEST " + file_name); //****
 		      String line = scan.nextLine();
 		      
 		      while (scan.hasNextLine()) {
@@ -61,12 +67,13 @@ public class DataWrangler {
 		    	  //Create book
 		    	  Book newBook = new Book(info[0], info[1], info[2], Integer.parseInt(info[3]), info[4]);
 		    	  //Back-End function, adds Book to hash table
-		    	  BackEndHash.add(newBook);
+		    	  table_name.add(newBook);
 		      }
 		      
 		      scan.close();
 		      return true;
 		    } catch (FileNotFoundException e) {
+		    	System.out.println("File not found at " + file_name);
 		      return false;
 		    }
 	}
