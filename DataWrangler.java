@@ -14,6 +14,11 @@ public class DataWrangler {
 		//Title, Author, Publisher, Publication Year, ISBN
 		final int info_types = 5;
 		
+		//Assumes .csv if no extension provided
+		if(file_name.substring(file_name.length() - 4) != ".csv" && file_name.substring(file_name.length() - 4) != ".txt") {
+			file_name += ".csv";
+		}
+		
 		//Open file
 		 try {
 		      File read_file = new File(file_name);
@@ -56,7 +61,7 @@ public class DataWrangler {
 		    	  //Create book
 		    	  Book newBook = new Book(info[0], info[1], info[2], Integer.parseInt(info[3]), info[4]);
 		    	  //Back-End function, adds Book to hash table
-		    	  //BackEndHash.add(newBook);
+		    	  BackEndHash.add(newBook);
 		      }
 		      
 		      scan.close();
